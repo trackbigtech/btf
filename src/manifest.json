@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Big Tech Funding",
+  "description": "Big Tech Funding - Keeping an eye on Big Tech's political influence with think tanks and advocacy groups.",
+  "homepage_url": "https://www.bigtechfunding.org/",
+  "background": { "scripts": ["background.bundle.js"] },
+  "icons": {
+    "128": "icon-128.png",
+    "34": "icon-34.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://twitter.com/*"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["content.styles.css"]
+    }
+  ],
+  "permissions": [
+    "storage"
+  ],
+  "content_security_policy": "script-src https://*.google.com 'self' 'unsafe-eval'; object-src 'self'",
+  "web_accessible_resources": [
+      "content.styles.css", "icon-128.png", "icon-34.png"
+  ]
+}
